@@ -16,11 +16,13 @@ console.log(a % b); //Remainder
 let p = 10;
 let q = 20;
 let r = null;
-console.log(q, p);
+
+console.log(p, q); // Before swap: Prints 10 20
+
+r = p;
 p = q;
 q = r;
-r = p;
-console.log(p, q);
+console.log(p, q); // After swap: Prints 20 10
 
 // 3. Student Marks
 
@@ -59,9 +61,9 @@ console.log("area=", area, "perimeter=", perimeter);
 let num1 = 1050;
 
 if (num1 % 2 == 0) {
-  console.log(`this numebr ${num1} is even numebr`);
+  console.log(`this number ${num1} is even number`);
 } else {
-  console.log(`this numebr ${num1} is odd numebr`);
+  console.log(`this number ${num1} is odd number`);
 }
 
 // 7. Positive, Negative or Zero
@@ -75,15 +77,15 @@ if (no > 0) {
 }
 
 // 8. Greater of twoo Number
-let nm1 = 1500;
-let nm2 = 1500;
+let num1 = 1500;
+let num2 = 1500;
 
-if (nm1 > nm2) {
-  console.log(`number ${nm1} is greater `);
-} else if (nm2 > nm1) {
-  console.log(`number ${nm2} is greater `);
+if (num1 > num2) {
+  console.log("First number is greater");
+} else if (num2 > num1) {
+  console.log("Second number is greater");
 } else {
-  console.log("both number  are equal");
+  console.log("Both numbers are equal");
 }
 
 // 9  greater of three number
@@ -122,12 +124,12 @@ if (Age >= 18 && haslicense) {
 
 // 12. Number Range
 
-let number = 50;
+let num = Number(prompt("Enter a number:"));
 
-if (number >= 10 && number <= 100) {
-  console.log(`this number ${number} is between 10 and 100`);
+if (num >= 10 && num <= 100) {
+  console.log("Number is between 10 and 100");
 } else {
-  console.log("not in boundaries ");
+  console.log("Number is not between 10 and 100");
 }
 
 // Section 3 - if, else-if & Nested Conditions
@@ -146,8 +148,6 @@ if (percentage > 0 && percentage <= 100) {
     console.log("grade D");
   } else if (percentage >= 40 && percentage <= 59) {
     console.log("grade E");
-  } else {
-    console.log("grade E");
   }
 } else {
   console.log("invalid percentage");
@@ -155,11 +155,15 @@ if (percentage > 0 && percentage <= 100) {
 
 // 14. Student Result
 
-let sub1 = 90;
-let sub2 = 50;
-let sub3 = 90;
-let average = (sub1 + sub2 + sub3) / 3;
-if (sub1 >= 40 && sub2 >= 40 && sub3 >= 60) {
+let marks1 = Number(prompt("Enter marks of subject 1:"));
+let marks2 = Number(prompt("Enter marks of subject 2:"));
+let marks3 = Number(prompt("Enter marks of subject 3:"));
+
+if (marks1 < 40 || marks2 < 40 || marks3 < 40) {
+  console.log("Result: Fail");
+} else {
+  let average = (marks1 + marks2 + marks3) / 3;
+
   if (average >= 75) {
     console.log("Distinction");
   } else if (average >= 60) {
@@ -167,13 +171,23 @@ if (sub1 >= 40 && sub2 >= 40 && sub3 >= 60) {
   } else if (average >= 50) {
     console.log("Second Division");
   } else {
-    console.log("pass");
+    console.log("Pass");
   }
-} else {
-  console.log("Fail");
 }
 
 // 15. Electricity Bill
+let units = Number(prompt("Enter units consumed:"));
+let bill;
+
+if (units <= 100) {
+  bill = units * 5;
+} else if (units <= 200) {
+  bill = 100 * 5 + (units - 100) * 7;
+} else {
+  bill = 100 * 5 + 100 * 7 + (units - 200) * 10;
+}
+
+console.log(`Final Bill = ₹${bill}`);
 
 // 16. Simple Login
 
@@ -231,7 +245,7 @@ if (AGE < 0) {
 
 // Section 4 - switch-case
 
-// 19. Day of the Wee
+// 19. Day of the Week
 
 let day = 7;
 
@@ -265,40 +279,41 @@ switch (day) {
 
 // 20. Simple Calculator
 
-let firstn = 510;
-let secondn = 10;
-
-let operator = "%";
+let num1 = Number(prompt("Enter first number:"));
+let num2 = Number(prompt("Enter second number:"));
+let operator = prompt("Enter operator (+, -, *, /, %):");
 
 switch (operator) {
   case "+":
-    console.log(firstn + secondn);
+    console.log(num1 + num2);
     break;
+
   case "-":
-    console.log(firstn - secondn);
+    console.log(num1 - num2);
     break;
+
   case "*":
-    console.log(firstn * secondn);
+    console.log(num1 * num2);
     break;
+
   case "/":
-    if (secondn === 0) {
-      console.log("0 is not divisible");
+    if (num2 === 0) {
+      console.log("Cannot divide by zero");
     } else {
-      console.log(firstn / secondn);
+      console.log(num1 / num2);
     }
     break;
 
   case "%":
-    if (secondn === 0) {
-      console.log("0 is not divisible");
+    if (num2 === 0) {
+      console.log("Cannot divide by zero");
     } else {
-      console.log(firstn % secondn);
+      console.log(num1 % num2);
     }
     break;
 
   default:
-    console.log("select a valid operation");
-    break;
+    console.log("Invalid operator");
 }
 
 // 21. Month Name
@@ -334,7 +349,7 @@ switch (MONnum) {
     console.log("September");
     break;
   case 10:
-    console.log("Octuber");
+    console.log("October");
     break;
   case 11:
     console.log("November");
@@ -376,10 +391,9 @@ switch (menu) {
     break;
 }
 
-
 // 23. Traffic Signal
 
-let light = "green"
+let light = "green";
 
 switch (light) {
   case "green":
@@ -398,4 +412,3 @@ switch (light) {
 }
 
 // Section 5 - Mixed Problems
-
